@@ -9,7 +9,7 @@ import playformCompress from "@playform/compress";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://www.rohitk06.site",
+	site: "https://www.carmor.me",
 	prefetch: true,
 	integrations: [
 		tailwind({
@@ -27,8 +27,8 @@ export default defineConfig({
 		}),
 		robotsTxt({
 			sitemap: [
-				"https://www.rohitk06.site/sitemap-0.xml",
-				"http://www.rohitk06.site/sitemap-index.xml",
+				"https://www.carmor.me/sitemap-0.xml",
+				"http://www.carmor.mesite/sitemap-index.xml",
 			],
 		}),
 		playformCompress(),
