@@ -1,0 +1,49 @@
+---
+import { calibration as c } from '../data/portfolio';
+---
+
+<figure class="calibration-chart">
+  <figcaption>
+    <span class="eyebrow">Confidence ≠ accuracy</span><span
+      class="chart-subtitle">Qwen3-0.6B · CommonsenseQA</span
+    >
+  </figcaption>
+  <p class="chart-legend">
+    <span
+      ><i class="legend-confidence" aria-hidden="true"></i> Average confidence</span
+    ><span><i class="legend-accuracy" aria-hidden="true"></i> Accuracy</span>
+  </p>
+  <div class="chart-scale" aria-hidden="true">
+    <span>0%</span><span>50%</span><span>100%</span>
+  </div>
+  {
+    c.stages.map((stage) => (
+      <div class="chart-row">
+        <>
+          <div class="chart-label">
+            <>
+              <span>{stage.label}</span>
+              <strong>{stage.confidence.toFixed(2)}% confidence</strong>
+            </>
+          </div>
+          <div class="chart-track" aria-hidden="true">
+            <>
+              <div
+                class:list={['chart-bar', stage.tone]}
+                style={`width:${stage.confidence}%`}
+              />
+              <span class="accuracy-marker" style={`left:${stage.accuracy}%`} />
+            </>
+          </div>
+          <span class="stage-accuracy">
+            Accuracy {stage.accuracy.toFixed(2)}%
+          </span>
+        </>
+      </div>
+    ))
+  }
+  <p class="chart-note">
+    {c.heldOut} held-out questions. Fine-tuning improved accuracy; temperature scaling
+    improved calibration while accuracy stayed at 65.17%.
+  </p>
+</figure>

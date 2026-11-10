@@ -1,0 +1,103 @@
+---
+import { Image } from 'astro:assets';
+import { projects } from '../data/portfolio';
+import dashboard from '../assets/images/private-markets-dashboard.png';
+import CalibrationChart from './CalibrationChart.astro';
+const [finance, ml, mobile] = projects;
+---
+
+<section id="projects" class="section wrap" aria-labelledby="projects-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">01 / Selected projects</p><h2 id="projects-title">
+        Built to learn.<br />Built to be used.
+      </h2>
+    </div><p>
+      Practical engineering, considered decisions,<br class="desktop-break" /> and
+      experiments with something to say.
+    </p>
+  </div>
+  <article class="project-feature">
+    <a
+      class="project-image"
+      href={`/projects/${finance.slug}/`}
+      aria-label="Read the Private Markets Tracker case study"
+      ><div class="image-topline">
+        <span>Private Markets Tracker</span><span
+          >Application preview <span aria-hidden="true">↗</span></span
+        >
+      </div><Image
+        src={dashboard}
+        width={1280}
+        height={576}
+        widths={[640, 960, 1280]}
+        sizes="(max-width: 700px) 100vw, 1100px"
+        alt="Private Markets Tracker dashboard showing commitment totals and allocation charts using fictional demo data"
+        format="webp"
+        loading="lazy"
+      /><span class="image-caption"
+        >Authentic application screenshot · Fictional demo data</span
+      ></a
+    >
+    <div class="project-info">
+      <div class="project-index" aria-hidden="true">01</div><div>
+        <p class="eyebrow">{finance.category}</p><h3>
+          <a href={`/projects/${finance.slug}/`}>{finance.title}</a>
+        </h3><p>{finance.summary}</p><ul class="tags" aria-label="Technologies">
+          {finance.tags.map((tag) => <li>{tag}</li>)}
+        </ul>
+      </div><a class="project-cta text-link" href={`/projects/${finance.slug}/`}
+        >Read case study <span aria-hidden="true">↗</span></a
+      >
+    </div>
+  </article>
+  <div class="project-pair">
+    <article class="project-secondary">
+      <div class="project-visual"><CalibrationChart /></div><div
+        class="secondary-info"
+      >
+        <p class="eyebrow">02 / {ml.category}</p><h3>
+          <a href={`/projects/${ml.slug}/`}>{ml.title}</a>
+        </h3><p>{ml.summary}</p><ul class="tags" aria-label="Technologies">
+          {ml.tags.slice(0, 4).map((tag) => <li>{tag}</li>)}
+        </ul><a class="text-link" href={`/projects/${ml.slug}/`}
+          >Explore the experiment <span aria-hidden="true">↗</span></a
+        >
+      </div>
+    </article>
+    <article class="project-secondary">
+      <div class="project-visual mobile-visual">
+        <div class="sync-diagram" aria-hidden="true">
+          <div class="device">
+            <span></span><div class="device-line long"></div><div
+              class="device-line"
+            >
+            </div><div class="device-block"></div><div class="device-line long">
+            </div><div class="device-line"></div>
+          </div><div class="sync-path">
+            <span>⇄</span><i></i><small>Authenticated<br />& synchronised</small
+            >
+          </div><div class="device second">
+            <span></span><div class="device-line long"></div><div
+              class="device-line"
+            >
+            </div><div class="device-block"></div><div class="device-line long">
+            </div><div class="device-line"></div>
+          </div>
+        </div><p class="diagram-caption">
+          Account access → Row Level Security → Realtime sync
+        </p><span class="private-label"
+          >Architecture illustration · Private application</span
+        >
+      </div><div class="secondary-info">
+        <p class="eyebrow">03 / {mobile.category}</p><h3>
+          <a href={`/projects/${mobile.slug}/`}>{mobile.title}</a>
+        </h3><p>{mobile.summary}</p><ul class="tags" aria-label="Technologies">
+          {mobile.tags.slice(0, 4).map((tag) => <li>{tag}</li>)}
+        </ul><a class="text-link" href={`/projects/${mobile.slug}/`}
+          >Inside the engineering <span aria-hidden="true">↗</span></a
+        >
+      </div>
+    </article>
+  </div>
+</section>

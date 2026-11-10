@@ -1,27 +1,18 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import PageNav from "../components/PageNav";
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Page Not Found">
-	<main class="w-5/6 mx-auto relative" transition:persist>
-		<PageNav title="Page Not Found" client:load />
-		<section data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-			<div class="text-primary mt-36">
-				<h1 class="text-9xl font-semibold flex justify-center items-center">
-					404
-				</h1>
-				<p class="text-center font-semibold">
-					A page you are trying to access does not exist
-				</p>
-				<div class="flex justify-center mt-6">
-					<button
-						onclick="history.back();"
-						class="px-4 py-2 bg-primary rounded-xl bg-opacity-10 font-semibold"
-						>Go Back</button
-					>
-				</div>
-			</div>
-		</section>
-	</main>
+<Layout title="Page not found — Javi Careaga" noindex>
+  <Header />
+  <main id="main" tabindex="-1" class="wrap not-found">
+    <p class="eyebrow">404 / Page not found</p><h1>A missing connection.</h1><p>
+      This page doesn’t exist. You can find my projects, experience, and contact
+      details on the homepage.
+    </p><a class="button" href="/"
+      >Back to the portfolio <span aria-hidden="true">↗</span></a
+    >
+  </main>
+  <Footer />
 </Layout>

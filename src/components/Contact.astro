@@ -1,0 +1,23 @@
+---
+import { profile } from '../data/portfolio';
+---
+
+<section id="contact" class="contact wrap" aria-labelledby="contact-title">
+  <p class="eyebrow">04 / Get in touch</p><div class="contact-grid">
+    <div>
+      <h2 id="contact-title">Let’s build<br />something useful.</h2><p>
+        Interested in my work, or have an opportunity in<br
+          class="desktop-break"
+        /> software engineering, ML, or fintech? I’d like to hear from you.
+      </p><a class="contact-email" href={`mailto:${profile.email}`}
+        >{profile.email} <span aria-hidden="true">↗</span></a
+      >
+    </div><div class="contact-links">
+      <a href={profile.github}>GitHub <span aria-hidden="true">↗</span></a><a
+        href={profile.linkedin}>LinkedIn <span aria-hidden="true">↗</span></a
+      ><a href={`mailto:${profile.email}`}
+        >Email <span aria-hidden="true">↗</span></a
+      >
+    </div>
+  </div>
+</section>
